@@ -1,11 +1,16 @@
 package com.example.jonatan.myfirstapp;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log; //Se crea en cuanto se introduce la line de log
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +27,32 @@ public class MainActivity extends AppCompatActivity {
 
         textBox.setText("Hi world!!");
         textBox.setTextSize(20);
+
+        // pasar a otra actividad y pasar informacaion a la otra activity
+        Button boton1 = (Button) findViewById(R.id.button1);
+        boton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText txtent = (EditText) findViewById(R.id.text);
+                String vstring = txtent.getText().toString();
+                Intent inb1 = new Intent(MainActivity.this, SecondActivity.class);
+                inb1.putExtra("valor1",vstring);
+                startActivityForResult(inb1, 100);//ticket de comprovante de que solucion estamos hablando
+            }
+        });
+    }
+
+    protected void onActivityResult (int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+        if ((requestCode == 100) && (resultCode == Activity.RESULT_OK)){
+            Bundle resultAct = data.getExtras();
+            String stresult = resultAct.getString("valor12");
+            TextView txsort = (TextView) findViewById(R.id.textView2);
+            txsort.setText(stresult);
+            txsort.setTextSize(20);
+            Toast.makeText(this, stresult, Toast.LENGTH_LONG).show();
+
+        }
     }
     @Override
     public void onStart() {

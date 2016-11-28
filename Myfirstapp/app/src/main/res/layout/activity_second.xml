@@ -9,4 +9,41 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.jonatan.myfirstapp.SecondActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Activity 2 is here"
+        android:background="#BDBDBD"
+        android:textColor="#000000"
+        android:layout_alignParentTop="true"
+        android:id="@+id/textViewA2" />
+
+    <Button
+        android:text="VOLVER"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewA2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="135dp"
+        android:layout_marginStart="135dp"
+        android:layout_marginTop="54dp"
+        android:id="@+id/bt2"
+        android:onClick="onClick"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Write here"
+        android:ems="10"
+        android:layout_below="@+id/bt2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="65dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="68dp"
+        android:id="@+id/edit1" />
+
+
 </RelativeLayout>

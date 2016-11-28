@@ -1,6 +1,8 @@
 package edu.upc.jonatan.simplecalculator;
 
+import android.content.Context;
 import android.provider.MediaStore;
+import android.renderscript.Short2;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -74,6 +77,13 @@ public class MainActivity extends AppCompatActivity {
 
         Numero2 = Double.parseDouble(N2.getText().toString());
         Numero1 = Double.parseDouble(N1.getText().toString());
+
+        Context context = getApplicationContext();
+        CharSequence text = "Operación resuelta";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
 
         if (Bsuma.isChecked()){
             Resultado = Numero1 + Numero2;
