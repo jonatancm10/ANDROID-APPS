@@ -24,6 +24,15 @@ public class MainActivity extends AppCompatActivity {
 
         TextView textBox = (TextView)findViewById(R.id.textView1);
         Button button = (Button)findViewById(R.id.button1);
+        Button lista = (Button) findViewById(R.id.Lista);
+
+        lista.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent (MainActivity.this, ActListCostum.class);
+                startActivity(intent1);
+            }
+        });
 
         textBox.setText("Hi world!!");
         textBox.setTextSize(20);
@@ -85,4 +94,5 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
         Log.d(tag, "event onPause()");
     }
+
 }
